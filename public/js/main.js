@@ -6,6 +6,7 @@
 //     taille : '1m63'
 // }
 // console.log(perso1);
+
 // // Exo 2
 // let perso2 = {
 //     nom : 'Hill',
@@ -15,12 +16,13 @@
 // }
 
 // // Exo 3
-// let perso3 = {
-//     nom : perso1.nom,
-//     age : perso2.age,
-//     taille : "1m92",
-// }
+// let perso3 = {}
+// perso3.nom = perso1.nom
+// perso3.age = perso2.age
+// perso3.taille = '1m57'
+
 // console.log(perso3);
+// // on a mis en dehors des accolades pour montrer qu'on peut réassigner des infos 
 
 // // Exo 4
 // let perso4 = {
@@ -35,21 +37,20 @@
 //     prenom : "Sully",
 //     nom : "TopBoy",
 //     sePresenter() {
-//     console.log(`Bonjour je m'appelle ${perso5.prenom} ${perso5.nom}`);
+//     console.log(`Bonjour je m'appelle ${this.prenom} ${this.nom}`);
 //     }
 // }
-// console.log(perso5);
 // perso5.sePresenter()
 
 // // Exo 6
 // let perso6 = {
 //     nom : "euh",
-//     age : prompt('Age?'),
-//     methodee () {
-//         console.log(`${perso6.nom} a ${perso6.age} ans`);
+//     changerAge () {
+//         this.age = prompt('Quel âge as-tu?')
+//         console.log(`${this.nom} a ${this.age} ans`);
 //     }
 // }
-// perso6.methodee()
+// perso6.changerAge()
 
 // // Exo 7
 // let pers1 = {
@@ -67,22 +68,27 @@
 //     prenom : "Otmane"
 // }
 
-// let pers4 = {
-//     nom : pers2.prenom,
-//     age : pers2.age,
+// let voleur = {
 //     usurpation () {
-//         console.log(pers4.nom + pers4.age);
+//         this.nom = perso1.nom
+//         this.age = perso2.age
+//         console.log(`${this.nom} a ${this.age} ans`);
 //     }
 // }
-// pers4.usurpation()
+// voleur.usurpation()
 
 // Exo 8
 let françois = {
     nom : "François",
     panier : ['patate', 'tomate', 'aubergine'],
-    derober() {
-        console.log(françois.panier.push(sergio.panier[1], sergio.panier[2]));
-        console.log(sergio.panier.splice(1, 2); 
+    derober(a) {
+        for (let i = 0; i < 2; i++) {
+            let product = prompt(`que voulez vous voler chacal.? \n ${sergio.panier}`)
+            this.panier.push(product);
+            a.panier = a.panier.filter((el) => {
+                return el != product
+            })
+        }
     }
 }
 
@@ -91,6 +97,6 @@ let sergio = {
     panier : ['courgette', 'ail', 'concombre']
 }
 
-françois.derober()
+françois.derober(sergio)
 console.log(françois);
 console.log(sergio);
